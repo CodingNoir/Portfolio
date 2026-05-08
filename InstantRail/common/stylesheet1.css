@@ -1,0 +1,19 @@
+/* Initial state: hidden (fade-out) */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* When the page is fully loaded, apply the fade-in effect */
+body.fade-in {
+  opacity: 1;
+}
+
+/* When the page is unloading, apply the fade-out effect */
+body.fade-out {
+  opacity: 0;
+}
