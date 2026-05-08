@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InstantRail Ticketing</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+   body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    header {
+      background: #000;
+      color: #fff;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #00bfae;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-top: 20px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .w3-card-4 {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .w3-card-4:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .w3-bar a {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Updated Navbar Hover Effect */
+    .w3-bar a:hover {
+      background-color: #00bfae;
+      color: #fff;
+    }
+
+    /* Animation for fadeIn effect */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Interactive Button Effects */
+    .w3-button {
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    .w3-button:hover {
+      background-color: #00bfae;
+    }
+
+    /* Parallax Effect */
+    .parallax {
+      background-image: url('images2/trainstation.jpg.');
+      height: 400px;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar ------------------>
+ <div id="navDemo" class="w3-top">
+  <div class="w3-bar w3-theme-d2 w3-left-align">
+
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+    <a href="InstantRail HomePage.html" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Home</a>
+    <a href="AboutUs.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About Us</a>
+    <a href="ticketing.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Get a Ticket</a>
+    
+
+    <a href="Estaciones/Stations.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Stations</a>
+    <a href="ContactUs.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact Us</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">InstantTracking</a>
+	<a href="InstantNews.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">InstantNews</a>
+
+    <!-- Language Dropdown -->
+    <div class="w3-dropdown-hover w3-hide-small w3-right">
+      <a href="#view" class="w3-bar-item w3-button w3-hover-gray"> <i class="fa fa-globe"></i> <span style="font-family: inherit;">Language</span> <i class="fa fa-caret-down"></i></a>
+      <div class="w3-dropdown-content w3-bar-block w3-border">
+	  
+        <a href="Ticketing.html" class="w3-bar-item w3-button w3-text-black">English</a>
+        <a href="ticketingSpanish.html" class="w3-bar-item w3-button w3-text-black">Spanish</a>
+      </div>
+    </div>
+    <!-- Language Dropdown -->
+
+	<a href="add_user_screen.php" class="w3-button w3-right w3-hover-green">Sign Up</a>
+    <a href="login_screen.php" class="w3-button w3-right w3-hover-blue">Log In</a>
+ </div> 
+</div>
+
+  <!-- Header Section -->
+  <section class="parallax" style="backdrop-filter: blur(15px); padding: 50px 0;">
+  <header class="w3-container w3-transparent" style="backdrop-filter: blur(15px); padding: 50px 0; margin: 0;">
+      <h1>InstantTicketing</h1>
+      <p>Choose your perfect ticket for a seamless experience</p>
+    </header>
+  </section>
+  
+<!-- Free Tickets Notice --> 
+<!-- Can be disabled or enabled depending on the situation. -->
+<div class="w3-container w3-center w3-padding-32 w3-white w3-round-large w3-card-4" style="margin: 50px auto; max-width: 800px; animation: fadeIn 2s;">
+  <h2 class="w3-text-teal" style="font-size: 2.5rem; font-weight: bold;">🎉 Great News! 🎉</h2>
+  <p style="font-size: 1.5rem; color: #000;">
+    All tickets are currently <b class="w3-text-orange">FREE OF CHARGE</b> for a limited time! Grab yours now and enjoy the ride with <b>InstantRail!</b>.
+    <br>
+    <span class="w3-text-grey" style="font-size: 1.2rem; font-style: italic;">Valid through December 31, 2024</span>
+  </p>
+</div>
+
+
+
+  <!-- Ticket Options Section -->
+  <div id="ticket-options" class="w3-row-padding w3-center w3-margin-bottom w3-padding-64">
+    <h2 class="w3-text-teal">General Available Tickets</h2> <br>
+	
+<!-- Standard -->
+    <div class="w3-third">
+      <div class="w3-card-4 w3-white w3-round-large w3-padding-32 w3-border w3-border-teal ticket-card w3-hover-gray">
+        <h3>Standard</h3>
+        <i class="fas fa-ticket-alt w3-text-teal w3-xxlarge"></i>
+        <p>General entry for the general public. <br><b><h3>Price: $1.50</h3></b> </p>
+        <a href="login_screen.php" class="w3-button w3-teal w3-hover-shadow w3-round">Select Ticket</a>
+      </div>
+    </div>
+	
+<!-- Reduced -->
+    <div class="w3-third">
+      <div class="w3-card-4 w3-white w3-round-large w3-padding-32 w3-blue w3-border w3-border-blue ticket-card w3-hover-gray">
+        <h3>Reduced</h3>
+        <i class="fas fa-ticket-alt w3-text-blue w3-xxlarge"></i>
+        <p>Reduced entry for students and elders 65 through 75 years old. <br><b><h3>Price: $0.75</h3></b> </p>
+       <a href="login_screen.php" class="w3-button w3-blue w3-hover-shadow w3-round">Select Ticket</a>
+      </div>
+    </div>
+
+<!-- Special -->
+    <div class="w3-third">
+      <div class="w3-card-4 w3-white w3-round-large w3-padding-32 w3-orange w3-border w3-border-orange ticket-card w3-hover-gray">
+        <h3>Special</h3>
+        <i class="fas fa-ticket-alt w3-text-orange w3-xxlarge"></i>
+        <p>Special pass for elders 75 years or older and children 6 and below. <br><b><h3>Price: Free of Charge</h3></b> </p>
+        <a href="login_screen.php" class="w3-button w3-orange w3-hover-shadow w3-round">Select Ticket</a>
+      </div>
+    </div>
+  </div>
+  <!-- Ticket Options Section -->
+  
+  
+  <!-- Contact Section -->
+  <section id="contact" class="w3-container w3-theme-d1 w3-center w3-padding-64" style="background-color: #000;">
+    <footer>
+      <h4 class="w3-text-teal">Contact Us</h4>
+      <p><i class="w3-xlarge fa fa-map-marker w3-text-teal"></i> Puerto Rico, US</p>
+      <p><i class="w3-xlarge fa fa-phone w3-text-teal"></i> +00 1515151515</p>
+      <p><i class="w3-xlarge fa fa-envelope w3-text-teal"></i> InstantRail@gmail.com</p>
+
+      <div class="w3-left w3-text-teal" style="display: flex; align-items: center;">
+        <img src="images2/favicon_io/edited_1.png" alt="Avatar" class="w3-circle w3-margin-right w3-image" style="width:30px; height:30px;">
+        <p>Powered by Sunrise Venture</p>
+      </div>
+    </footer>
+  </section>
+
+</body>
+
+</html>
