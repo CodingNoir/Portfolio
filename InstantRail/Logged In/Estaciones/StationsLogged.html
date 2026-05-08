@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel with Cards</title>
+
+    <!-- External stylesheets -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Navbar styles */
+        .w3-bar a {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Updated Navbar Hover Effect */
+        .w3-bar a:hover {
+            background-color: #00bfae;
+            color: #fff;
+        }
+
+        /* Carousel styles */
+        .carousel-container {
+            width: 80%;
+            max-width: 1200px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px auto;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .card {
+            flex: 1 0 25%;
+            box-sizing: border-box;
+            padding: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 100%;
+            height: 223px;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 0;
+            text-align: center;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .nav-button:hover {
+            background-color: #5a4c4c85;
+        }
+
+        .nav-button.left {
+            left: 10px;
+        }
+
+        .nav-button.right {
+            right: 10px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .popup h2 {
+            margin-top: 0;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .popup p {
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: justify;
+        }
+
+        .popup .close-btn {
+            display: inline-block;
+            cursor: pointer;
+            color: #333;
+            font-weight: bold;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            padding: 5px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .popup .close-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            font-family: 'Times New Roman', Times, serif;
+            border-bottom: 1px solid #ddd;
+        }
+		
+		
+    /* Updated Navbar Hover Effect */
+    .w3-bar a:hover {
+      background-color: #00bfae;
+      color: #fff;
+    }
+
+    /* Animation for fadeIn effect */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Interactive Button Effects */
+    .w3-button {
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    .w3-button:hover {
+      background-color: #00bfae;
+    }
+    </style>
+</head>
+
+<body>
+
+     <!-- Navbar ------------------>
+  <div id="navDemo" class="w3-top">
+    <div class="w3-bar w3-theme-d2 w3-left-align">
+
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+      <a href="../InstantRail HomePageLogged.html" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Home</a>
+      <a href="../AboutUsLogged.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About Us</a>
+      <a href="../ticketingLogged.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Get a Ticket</a>
+      <a href="StationsLogged.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Stations</a>
+      <a href="../ContactUsLogged.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact Us</a>
+      <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">InstantTracking</a>
+	  <a href="../InstantNewsLogged.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">InstantNews</a>
+	  
+
+      <!-- Language Dropdown -->
+      <div class="w3-dropdown-hover w3-hide-small w3-right">
+        <a href="#view" class="w3-bar-item w3-button w3-hover-gray"> <i class="fa fa-globe"></i> <span style="font-family: inherit;">Language</span> <i class="fa fa-caret-down"></i></a>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+          <a href="Ticketing.html" class="w3-bar-item w3-button">English</a>
+          <a href="ticketingSpanish.html" class="w3-bar-item w3-button">Spanish</a>
+        </div>
+      </div>
+
+      <!-- User Profile Dropdown -->
+	<div class = "w3-dropdown-hover w3-hide-small w3-right">
+		<a href="#view" class="w3-button w3-right w3-hover-blue"><i class="fa fa-user"></i> <span style="font-family: inherit;">Profile</span> <i class="fa fa-caret-down"></i></a>
+			<div class = "w3-dropdown-content w3-bar-block w3-border">
+				<a href="ViewTicketAccount.php" class="w3-bar-item w3-button">View Purchased Tickets</a>
+				<a href="logout.php" class="w3-bar-item w3-button w3-hover-red" onclick="return confirm('Are you sure you want to log out?');">Log out</a>
+			</div>
+
+  </div>
+
+    </div>
+  </div>
+	
+	<br><br>	<br><br>	<br><br><br><br><br><br><br><br>
+
+    <div class="carousel-container">
+        <h1>Estaciones de Tren</h1>
+        <button class="nav-button left" onclick="prevSlide()">&#10094;</button>
+        <div class="carousel" id="carousel"></div>
+        <button class="nav-button right" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="hideDetails()"></div>
+    <div class="popup" id="popup">
+        <span class="close-btn" onclick="hideDetails()">X</span>
+        <h2 id="popup-title">News Title</h2>
+        <p id="popup-description">News description goes here. <a href="#">Learn more</a></p>
+    </div>
+	
+	<br><br><br><br><br><br><br><br><br><br>
+	
+	  <!-- Contact Section -->
+  <section id="contact" class="w3-container w3-theme-d1 w3-center w3-padding-64" style="background-color: #000;">
+    <footer>
+      <h4 class="w3-text-teal">Contact Us</h4>
+      <p><i class="w3-xlarge fa fa-map-marker w3-text-teal"></i> Puerto Rico, US</p>
+      <p><i class="w3-xlarge fa fa-phone w3-text-teal"></i> +00 1515151515</p>
+      <p><i class="w3-xlarge fa fa-envelope w3-text-teal"> </i> InstantRail@gmail.com</p>
+	  
+	  <div class="w3-left w3-text-teal" style="display: flex; align-items: center;">
+  <img src="edited_1.png" alt="Avatar" class="w3-circle w3-margin-right w3-image" style="width:30px; height:30px;">
+  <p><i class="w3-xlarge"></i> Powered by Sunshine Venture</p>
+</div>
+
+    </footer>
+  </section>
+
+  <script>
+    const newsItems = [
+        {
+            title: "Bayamón",
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Intermodal Connection with MetroUrbano, AMA, Public Transportation</li>
+                <li>ICPR Junior College</li>
+                <li>Subway</li>
+                <li>Traditional Area</li>
+                <li>Urban Train Parking</li>
+                <li>Inter-American University of Puerto Rico – Bayamón Campus</li>
+                <li>Bayamón Town</li>
+                <li>Residential Areas</li>
+                <li>El Cantón Mall</li>
+                <li>Hermanos Meléndez Hospital</li>
+            </ul>
+      
+            Wait Time: 1:00 Minute
+        `,
+            image: "Bayamon.jpg"
+        },
+        {
+            title: "Deportivo", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Juan Ramón Loubriel Stadium</li>
+                <li>Bayamón Soccer Complex</li>
+                <li>Honda Tennis Center</li>
+                <li>Bayamón Judicial Center</li>
+                <li>Municipal Parking</li>
+                <li>Rubén Rodríguez Coliseum</li>
+                <li>Santa Rosa Mall</li>
+                <li>University of Puerto Rico - Bayamón Campus</li>
+                <li>HIMA San Pablo Hospital</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "deportivo.jpg"
+        },
+
+        {
+            title: "Jardines", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Urban Train Parking</li>
+                <li>MEPSI Psychiatric Hospital</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "Jardines.jpg"
+        },
+
+        {
+            title: "Torrimar", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Ben & Jerry's</li>
+                <li>Urban Train Parking</li>
+                <li>Torrimar Sports Complex</li>
+                <li>Torrimar Shopping Center</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "torrimar.jpg"
+        },
+
+        {
+            title: "Martínez Nadal", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Intermodal Connection with AMA and MetroUrbano</li>
+                <li>Subway</li>
+                <li>San Patricio Plaza</li>
+                <li>Urban Train Parking</li>
+                <li>Guaynabo City View Plaza</li>
+                <li>Corporate Office Park</li>
+                <li>Metropolitan Hospital</li>
+                <li>Altamira Shopping Center</li>
+                <li>Ciudad Lumen Condominium</li>
+                <li>Garden Hills Shopping Center</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "MartínezNadal.jpg"
+        },
+
+        {
+            title: "Las Lomas", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Metropolitan Hospital</li>
+                <li>Medical Offices</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "laslomas.jpg"
+        },
+
+        {
+            title: "San Francisco", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Compliance and Research</li>
+                <li>Urban Train Parking</li>
+                <li>Veterans Hospital</li>
+                <li>San Francisco Shopping Plaza</li>
+                <li>Institute of Forensic Sciences</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "sanfrancisco.jpg"
+        },
+
+        {
+            title: "Centro Medico", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Veterans Hospital</li>
+                <li>Puerto Rico Medical Center</li>
+                <li>University of Puerto Rico - Medical Sciences Campus</li>
+                <li>Industrial Hospital</li>
+                <li>San Juan Municipal Hospital</li>
+                <li>University Hospital</li>
+                <li>Cardiovascular Center of Puerto Rico and the Caribbean</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "CentroMedico.jpg"
+        },
+
+        {
+            title: "Cupey", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Intermodal Connection (AMA)</li>
+                <li>Urban Train Parking</li>
+                <li>Botanical Garden – University of Puerto Rico</li>
+                <li>Inter-American University of Puerto Rico - Cupey Campus</li>
+                <li>Ana G. Méndez University - Cupey Campus</li>
+                <li>Department of Natural and Environmental Resources (DRNA)</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "Cupey.jpg"
+        },
+
+        {
+            title: "Río Piedras", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Intermodal Connection - (AMA), Public Transportation</li>
+                <li>Río Piedras Police Station</li>
+                <li>Fire Station</li>
+                <li>University of Puerto Rico - Río Piedras Campus</li>
+                <li>Paseo De Diego</li>
+                <li>Commercial Areas</li>
+                <li>Río Piedras Town</li>
+                <li>Ramón Vilá Mayo High School</li>
+                <li>University High School (UHS)</li>
+                <li>Market Plaza</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "RioPiedras.jpg"
+        },
+
+        {
+            title: "Universidad de Puerto Rico", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Intermodal Connection - (AMA), Public Transportation</li>
+                <li>Río Piedras Police Station</li>
+                <li>Fire Station</li>
+                <li>University of Puerto Rico - Río Piedras Campus</li>
+                <li>Paseo De Diego</li>
+                <li>Commercial Areas</li>
+                <li>Río Piedras Town</li>
+                <li>Ramón Vilá Mayo High School</li>
+                <li>University High School (UHS)</li>
+                <li>Market Plaza</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "Universidad.jpg"
+        },
+
+        {
+            title: "Piñero", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Intermodal Connection (AMA)</li>
+                <li>Private Parking</li>
+                <li>San Juan Judicial Center</li>
+                <li>Auxilio Mutuo Hospital</li>
+                <li>El Monte Shopping Center</li>
+                <li>Golden Mile</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "Piñero.jpg"
+        },
+
+        {
+            title: "Domenech", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Golden Mile</li>
+                <li>AEELA</li>
+                <li>Department of Labor and Human Resources</li>
+                <li>Pavía Hospital, Hato Rey</li>
+                <li>EDP College</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "Domenech.jpg"
+        },
+
+        {
+            title: "Roosevelt", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Intermodal Connection (AMA)</li>
+                <li>Polytechnic University of Puerto Rico</li>
+                <li>Plaza Las Américas</li>
+                <li>Golden Mile</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "Roosev.jpg"
+        },
+
+        {
+            title: "Hato Rey", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Puerto Rico Coliseum</li>
+                <li>Golden Mile</li>
+                <li>Fine Arts Cinemas</li>
+                <li>Department of Education</li>
+                <li>Institute of Banking and Commerce</li>
+                <li>State Elections Commission</li>
+                <li>Ernesto Ramos Antonini Free School of Music</li>
+                <li>Plaza Las Américas</li>
+                <li>Federal District Court - Puerto Rico</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "HatoRey.jpg"
+        },
+
+        {
+            title: "Sagrado Corazón", 
+            description: `
+            Nearby Points of Interest: 
+            <br>
+            <ul>
+                <li>Intermodal Connection - (AMA)</li>
+                <li>CESCO</li>
+                <li>Photo Heavy</li>
+                <li>Center of Fine Arts - Luis A. Ferré</li>
+                <li>Euroamericana Editions</li>
+                <li>Minillas Government Center</li>
+                <li>Sagrado Corazón University</li>
+                <li>Puerto Rico Museum of Art</li>
+                <li>YMCA San Juan</li>
+                <li>Residential Areas</li>
+            </ul>
+
+            Wait Time: 1:00 Minute
+        `, 
+        image: "Sagrado.jpg"
+        }
+    ];
+
+        const carousel = document.getElementById('carousel');
+
+        // Dynamically generate cards
+        newsItems.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.setAttribute('onclick', `showDetails(${index})`);
+            card.innerHTML = `
+                <img src="${item.image}">
+                <h3>${item.title}</h3>
+            `;
+            carousel.appendChild(card);
+        });
+
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const totalSlides = Math.ceil(newsItems.length / 4); // Group slides in 4
+            if (index >= totalSlides) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = index;
+            }
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function showDetails(index) {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+
+            const item = newsItems[index];
+            document.getElementById('popup-title').innerText = item.title;
+            document.getElementById('popup-description').innerHTML = item.description;
+
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+        }
+
+        function hideDetails() {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+
+        showSlide(currentSlide);
+    </script>
+</body>
+
+</html>
