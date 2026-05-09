@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodingNoir Portfolio</title>
+
+    <!-- W3.CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<style>
+			body{
+    font-family:'Poppins', sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+/* Navbar */
+
+.navbar{
+    background:#111827;
+    padding:14px 30px;
+    box-shadow:0 0 10px rgba(0,0,0,0.4);
+}
+
+.logo{
+    color:#38bdf8;
+    font-size:24px;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.nav-btn{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.nav-btn:hover{
+    color:#38bdf8;
+}
+
+.mobile-nav{
+    background:#111827;
+}
+
+.nav-mobile-btn{
+    color:white;
+    padding:16px;
+    text-decoration:none;
+}
+
+/* Hero */
+
+.hero-section{
+    padding-top:140px;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    width:100%;
+}
+
+.hero-tag{
+    color:#38bdf8;
+    letter-spacing:2px;
+    font-size:14px;
+}
+
+.hero-title{
+    font-size:64px;
+    font-weight:700;
+    margin-top:10px;
+}
+
+.hero-text{
+    color:#cbd5e1;
+    line-height:1.8;
+    max-width:600px;
+    margin-top:20px;
+}
+
+.hero-buttons{
+    margin-top:30px;
+}
+
+.main-btn{
+    background:#38bdf8;
+    color:black;
+    border-radius:10px;
+    padding:14px 24px;
+    font-weight:600;
+    margin-right:15px;
+}
+
+.secondary-btn{
+    border:2px solid #38bdf8;
+    color:#38bdf8;
+    border-radius:10px;
+    padding:12px 24px;
+}
+
+.hero-image{
+    width:80%;
+    max-width:380px;
+    border-radius:20px;
+    border:4px solid #38bdf8;
+}
+
+/* Sections */
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:60px;
+    font-weight:700;
+}
+
+.skills-section,
+.projects-section{
+    padding:100px 40px;
+}
+
+/* Skills */
+
+.skill-card{
+    background:#1e293b;
+    padding:50px 20px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.skill-card:hover{
+    transform:translateY(-10px);
+}
+
+.skill-card i{
+    font-size:50px;
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+/* Projects */
+
+.project-card{
+    background:#1e293b;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+}
+
+.project-image{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.project-card h3{
+    margin-top:20px;
+}
+
+.project-card p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+.project-buttons{
+    margin-top:25px;
+    margin-bottom:25px;
+}
+
+.small-btn{
+    background:#38bdf8;
+    color:black;
+    border-radius:8px;
+    margin-right:10px;
+}
+
+.small-btn-outline{
+    border:2px solid #38bdf8;
+    color:#38bdf8;
+    border-radius:8px;
+}
+
+/* Footer */
+
+.footer{
+    text-align:center;
+    padding:30px;
+    background:#111827;
+    margin-top:50px;
+}
+
+/* Responsive */
+
+@media screen and (max-width:768px){
+
+    .hero-title{
+        font-size:42px;
+    }
+
+    .hero-section{
+        text-align:center;
+    }
+
+    .hero-image{
+        margin-top:40px;
+        width:70%;
+    }
+
+    .hero-buttons{
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:15px;
+    }
+
+    .main-btn,
+    .secondary-btn{
+        width:200px;
+    }
+
+}
+</style>
+
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+
+    <div class="w3-bar navbar">
+
+        <a href="index.html"
+        class="w3-bar-item logo">
+            CodingNoir
+        </a>
+
+        <div class="w3-right w3-hide-small">
+
+            <a href="index.html"
+            class="w3-bar-item nav-btn">
+                Home
+            </a>
+
+            <a href="projects.html"
+            class="w3-bar-item nav-btn">
+                Projects
+            </a>
+
+            <a href="about.html"
+            class="w3-bar-item nav-btn">
+                About
+            </a>
+
+            <a href="contact.html"
+            class="w3-bar-item nav-btn">
+                Contact
+            </a>
+
+        </div>
+
+        <!-- Mobile Menu -->
+        <a href="javascript:void(0)"
+        class="w3-bar-item w3-right w3-hide-medium w3-hide-large nav-btn"
+        onclick="toggleMenu()">
+
+            <i class="fa fa-bars"></i>
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- Mobile Navbar -->
+<div id="mobileNav"
+class="w3-bar-block w3-hide w3-hide-large w3-hide-medium mobile-nav">
+
+    <a href="index.html"
+    class="w3-bar-item nav-mobile-btn">
+        Home
+    </a>
+
+    <a href="projects.html"
+    class="w3-bar-item nav-mobile-btn">
+        Projects
+    </a>
+
+    <a href="about.html"
+    class="w3-bar-item nav-mobile-btn">
+        About
+    </a>
+
+    <a href="contact.html"
+    class="w3-bar-item nav-mobile-btn">
+        Contact
+    </a>
+
+</div>
+
+<!-- Hero Section -->
+<section class="hero-section">
+
+    <div class="w3-row-padding hero-content">
+
+        <!-- Left -->
+        <div class="w3-half w3-container">
+
+            <p class="hero-tag">
+                FULL STACK DEVELOPER
+            </p>
+
+            <h1 class="hero-title">
+                Aramis J.<br>
+                Lopez Peguero
+            </h1>
+
+            <p class="hero-text">
+
+                Computer Science student focused on
+                modern web systems, responsive interfaces,
+                and full stack development.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="projects.html"
+                class="w3-button main-btn">
+                    View Projects
+                </a>
+
+                <a href="#"
+                class="w3-button secondary-btn">
+                    Resume
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Right -->
+        <div class="w3-half w3-center">
+
+            <img src="assets/images/profile.jpg"
+            class="hero-image"
+            alt="Profile">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Skills -->
+<section class="skills-section">
+
+    <h2 class="section-title">
+        Skills
+    </h2>
+
+    <div class="w3-row-padding">
+
+        <div class="w3-quarter w3-margin-bottom">
+
+            <div class="w3-card skill-card">
+
+                <i class="fa-brands fa-html5"></i>
+
+                <h3>HTML5</h3>
+
+            </div>
+
+        </div>
+
+        <div class="w3-quarter w3-margin-bottom">
+
+            <div class="w3-card skill-card">
+
+                <i class="fa-brands fa-css3-alt"></i>
+
+                <h3>CSS3</h3>
+
+            </div>
+
+        </div>
+
+        <div class="w3-quarter w3-margin-bottom">
+
+            <div class="w3-card skill-card">
+
+                <i class="fa-brands fa-js"></i>
+
+                <h3>JavaScript</h3>
+
+            </div>
+
+        </div>
+
+        <div class="w3-quarter w3-margin-bottom">
+
+            <div class="w3-card skill-card">
+
+                <i class="fa-brands fa-php"></i>
+
+                <h3>PHP</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Featured Projects -->
+<section class="projects-section">
+
+    <h2 class="section-title">
+        Featured Projects
+    </h2>
+
+    <div class="w3-row-padding">
+
+        <!-- Project -->
+        <div class="w3-half w3-margin-bottom">
+
+            <div class="w3-card project-card">
+
+                <img src="assets/images/project1.jpg"
+                class="project-image"
+                alt="Project">
+
+                <div class="w3-container">
+
+                    <h3>
+                        InstantRail
+                    </h3>
+
+                    <p>
+
+                        Transportation management system
+                        inspired by Puerto Rico rail services.
+
+                    </p>
+
+                    <div class="project-buttons">
+
+                        <a href="InstantRail/IndexStarter.html"
+                        class="w3-button small-btn">
+                            Live Demo
+                        </a>
+
+                        <a href="https://github.com/CodingNoir/Portfolio/tree/main"
+                        class="w3-button small-btn-outline">
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Project -->
+        <div class="w3-half w3-margin-bottom">
+
+            <div class="w3-card project-card">
+
+                <img src="assets/images/project2.jpg"
+                class="project-image"
+                alt="Project">
+
+                <div class="w3-container">
+
+                    <h3>
+                        Barber Booking System
+                    </h3>
+
+                    <p>
+
+                        Appointment and payment management
+                        platform with responsive dashboard.
+
+                    </p>
+
+                    <div class="project-buttons">
+
+                        <a href="#"
+                        class="w3-button small-btn">
+                            Live Demo
+                        </a>
+
+                        <a href="#"
+                        class="w3-button small-btn-outline">
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+
+    <p>
+        © 2026 CodingNoir Portfolio
+    </p>
+
+</footer>
+
+<script src="assets/js/script.js"></script>
+
+</body>
+
+<script>
+function toggleMenu() {
+
+    let nav = document.getElementById("mobileNav");
+
+    if(nav.className.indexOf("w3-show") == -1){
+
+        nav.className += " w3-show";
+
+    } else {
+
+        nav.className =
+        nav.className.replace(" w3-show", "");
+
+    }
+
+}
+</script>
+</html>
