@@ -11,13 +11,18 @@
   <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <!-- Optional custom styles -->
   <style>
+
     body {
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f4f4f9;
+      overflow-x: hidden;
+    }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     header {
@@ -42,6 +47,8 @@
 
     .w3-card-4 {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      padding: 20px;
     }
 
     .w3-card-4:hover {
@@ -53,13 +60,11 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* Updated Navbar Hover Effect */
     .w3-bar a:hover {
       background-color: #00bfae;
       color: #fff;
     }
 
-    /* Animation for fadeIn effect */
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -70,7 +75,6 @@
       }
     }
 
-    /* Interactive Button Effects */
     .w3-button {
       border-radius: 50px;
       transition: background-color 0.3s ease;
@@ -80,7 +84,6 @@
       background-color: #00bfae;
     }
 
-    /* Parallax Effect */
     .parallax {
       background-image: url('images2/train3Background.jpg');
       height: 400px;
@@ -96,116 +99,506 @@
       border-collapse: collapse;
       text-align: center;
     }
+
+    img{
+      max-width:100%;
+      height:auto;
+    }
+
+    /* =========================
+       RESPONSIVE DESIGN
+    ========================= */
+
+    @media screen and (max-width:992px){
+
+      header h1{
+        font-size:2.3rem;
+      }
+
+      header p{
+        font-size:1.1rem;
+        padding:0 20px;
+      }
+
+      .w3-quarter{
+        width:50% !important;
+        margin-bottom:20px;
+      }
+
+      .parallax{
+        background-attachment:scroll;
+      }
+
+    }
+
+    @media screen and (max-width:600px){
+
+      header{
+        padding:30px 15px;
+      }
+
+      header h1{
+        font-size:2rem;
+      }
+
+      header p{
+        font-size:1rem;
+        margin-top:10px;
+      }
+
+      .w3-bar .w3-button{
+        font-size:14px;
+      }
+
+      .w3-quarter{
+        width:100% !important;
+        margin-bottom:20px;
+      }
+
+      #about .w3-card{
+        width:95%;
+        padding:15px !important;
+      }
+
+      .w3-button{
+        width:100%;
+        margin-top:10px;
+      }
+
+      footer p{
+        font-size:14px;
+      }
+
+      .w3-left{
+        flex-direction:column;
+        text-align:center;
+        width:100%;
+        margin-top:20px;
+      }
+
+      #about{
+        padding-top:60px !important;
+        padding-bottom:60px !important;
+      }
+
+      .parallax{
+        background-attachment:scroll;
+        background-position:center;
+        background-size:cover;
+        height:auto;
+        min-height:300px;
+      }
+
+    }
+
+    @media screen and (max-width:400px){
+
+      header h1{
+        font-size:1.6rem;
+      }
+
+      header p{
+        font-size:0.9rem;
+      }
+
+      .w3-button{
+        font-size:13px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body id="myPage">
 
+  <!-- Navbar -->
+  <div class="w3-top">
 
-  <!-- Navbar ------------------>
- <div id="navDemo" class="w3-top">
-  <div class="w3-bar w3-theme-d2 w3-left-align">
+    <div class="w3-bar w3-theme-d2 w3-left-align">
 
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-    <a href="InstantRail HomePage.html" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Home</a>
-    <a href="AboutUs.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About Us</a>
-    <a href="Ticketing.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Get a Ticket</a>
-    
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2"
+      href="javascript:void(0);"
+      onclick="openNav()">
 
-    <a href="Estaciones/Stations.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Stations</a>
-    <a href="ContactUs.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact Us</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">InstantTracking</a>
-	<a href="InstantNews.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">InstantNews</a>
+        <i class="fa fa-bars"></i>
 
-    <!-- Language Dropdown -->
-    <div class="w3-dropdown-hover w3-hide-small w3-right">
-      <a href="#view" class="w3-bar-item w3-button w3-hover-gray"> <i class="fa fa-globe"></i> <span style="font-family: inherit;">Language</span> <i class="fa fa-caret-down"></i></a>
-      <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="InstantRail HomePage.html" class="w3-bar-item w3-button">English</a>
-        <a href="InstantRail SpanishHomePage.html" class="w3-bar-item w3-button">Spanish</a>
+      </a>
+
+      <a href="InstantRail HomePage.html"
+      class="w3-bar-item w3-button w3-teal">
+
+        <i class="fa fa-home w3-margin-right"></i>Home
+
+      </a>
+
+      <a href="AboutUs.html"
+      class="w3-bar-item w3-button w3-hide-small w3-hover-white">
+
+        About Us
+
+      </a>
+
+      <a href="Ticketing.html"
+      class="w3-bar-item w3-button w3-hide-small w3-hover-white">
+
+        Get a Ticket
+
+      </a>
+
+      <a href="Estaciones/Stations.html"
+      class="w3-bar-item w3-button w3-hide-small w3-hover-white">
+
+        Stations
+
+      </a>
+
+      <a href="ContactUs.html"
+      class="w3-bar-item w3-button w3-hide-small w3-hover-white">
+
+        Contact Us
+
+      </a>
+
+      <a href="#contact"
+      class="w3-bar-item w3-button w3-hide-small w3-hover-white">
+
+        InstantTracking
+
+      </a>
+
+      <a href="InstantNews.html"
+      class="w3-bar-item w3-button w3-hide-small w3-hover-white">
+
+        InstantNews
+
+      </a>
+
+      <!-- Language Dropdown -->
+      <div class="w3-dropdown-hover w3-hide-small w3-right">
+
+        <a href="#view"
+        class="w3-bar-item w3-button w3-hover-gray">
+
+          <i class="fa fa-globe"></i>
+          Language
+          <i class="fa fa-caret-down"></i>
+
+        </a>
+
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+
+          <a href="InstantRail HomePage.html"
+          class="w3-bar-item w3-button">
+
+            English
+
+          </a>
+
+          <a href="InstantRail SpanishHomePage.html"
+          class="w3-bar-item w3-button">
+
+            Spanish
+
+          </a>
+
+        </div>
+
       </div>
+
+      <a href="add_user_screen.php"
+      class="w3-button w3-right w3-hover-green">
+
+        Sign Up
+
+      </a>
+
+      <a href="login_screen.php"
+      class="w3-button w3-right w3-hover-blue">
+
+        Log In
+
+      </a>
+
     </div>
-    <!-- Language Dropdown -->
 
-    <a href="add_user_screen.php" class="w3-button w3-right w3-hover-green">Sign Up</a>
-    <a href="login_screen.php" class="w3-button w3-right w3-hover-blue">Log In</a>
+    <!-- Mobile Navbar -->
+    <div id="navDemo"
+    class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+
+      <a href="AboutUs.html"
+      class="w3-bar-item w3-button">
+
+        About Us
+
+      </a>
+
+      <a href="Ticketing.html"
+      class="w3-bar-item w3-button">
+
+        Get a Ticket
+
+      </a>
+
+      <a href="Estaciones/Stations.html"
+      class="w3-bar-item w3-button">
+
+        Stations
+
+      </a>
+
+      <a href="ContactUs.html"
+      class="w3-bar-item w3-button">
+
+        Contact Us
+
+      </a>
+
+      <a href="InstantNews.html"
+      class="w3-bar-item w3-button">
+
+        InstantNews
+
+      </a>
+
+    </div>
 
   </div>
-</div>
 
-  <!-- Header Section -->
-<section class="parallax" style="margin: 0; padding: 0; height: auto;">
-  <header class="w3-container w3-transparent" style="backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 50px 0; margin: 0;">
-    <h1>InstantRail</h1>
-    <p>Welcome to InstantRail - Your future of public transportation</p>
-  </header>
-</section>
+  <!-- Header -->
+  <section class="parallax"
+  style="margin:0; padding:0; height:auto;">
 
-<!-- About Section -->
-<section id="about" class="parallax w3-container w3-center w3-padding-64 w3-black" style="margin-top: 0; padding-top: 0;">
-<br><br><br><br><br><br><br><br>
-  <div class="w3-card w3-round w3-transparent w3-center w3-border-black" style="max-width: 600px; margin: auto; padding: 20px; backdrop-filter: blur(20px);">
-    <h2 class="w3-text-black"><b>About InstantRail</b></h2>
-    <p class="w3-text-black"><b>We are dedicated to revolutionizing the future of urban transportation. Our goal is to provide efficient, sustainable, and modern solutions to cities and commuters worldwide.</b></p>
-    <a href="Ticketing.html" class="w3-button w3-teal w3-xlarge w3-margin-top">Buy a ticket now!</a>
-  </div>
-</section>
+    <header class="w3-container w3-transparent"
+    style="backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 50px 0;
+    margin:0;">
 
+      <h1>InstantRail</h1>
 
-<!-- Parallax Effect Section -->
-<section class="parallax" style="height: 400px; background-image: url('images2/train3Background.jpg'); background-attachment: fixed; background-size: cover; margin: 0; padding: 0;"></section>
+      <p>
+        Welcome to InstantRail -
+        Your future of public transportation
+      </p>
 
+    </header>
 
-  <!-- Services Section -->
-  <section id="services" class="w3-container w3-theme-l1 w3-center w3-padding-64">
+  </section>
+
+  <!-- About Section -->
+  <section id="about"
+  class="parallax w3-container w3-center w3-padding-64 w3-black"
+  style="margin-top:0; padding-top:120px;">
+
+    <div class="w3-card w3-round w3-transparent w3-center w3-border-black"
+    style="max-width:600px;
+    margin:auto;
+    padding:20px;
+    backdrop-filter: blur(20px);">
+
+      <h2 class="w3-text-black">
+        <b>About InstantRail</b>
+      </h2>
+
+      <p class="w3-text-black">
+
+        <b>
+
+          We are dedicated to revolutionizing the future
+          of urban transportation. Our goal is to provide
+          efficient, sustainable, and modern solutions
+          to cities and commuters worldwide.
+
+        </b>
+
+      </p>
+
+      <a href="Ticketing.html"
+      class="w3-button w3-teal w3-xlarge w3-margin-top">
+
+        Buy a ticket now!
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- Parallax -->
+  <section class="parallax"
+  style="height:400px;
+  background-image:url('images2/train3Background.jpg');
+  background-attachment:fixed;
+  background-size:cover;
+  margin:0;
+  padding:0;">
+
+  </section>
+
+  <!-- Services -->
+  <section id="services"
+  class="w3-container w3-theme-l1 w3-center w3-padding-64">
+
     <h2>Our Services</h2>
-    <p>Explore our innovative solutions that are designed to improve public transportation systems and create a more sustainable future.</p>
+
+    <p>
+
+      Explore our innovative solutions designed
+      to improve public transportation systems
+      and create a more sustainable future.
+
+    </p>
 
     <div class="w3-row-padding w3-padding-64">
+
       <div class="w3-quarter">
+
         <div class="w3-card-4 w3-white w3-round-large w3-hover-shadow-2">
-          <h3 class="w3-center w3-text-orange">Public Transport Optimization</h3>
-          <p class="w3-center">Efficient solutions for optimizing public transportation routes, schedules, and infrastructure.</p>
+
+          <h3 class="w3-center w3-text-orange">
+            Public Transport Optimization
+          </h3>
+
+          <p class="w3-center">
+
+            Efficient solutions for optimizing public
+            transportation routes, schedules,
+            and infrastructure.
+
+          </p>
+
         </div>
+
       </div>
+
       <div class="w3-quarter">
+
         <div class="w3-card-4 w3-white w3-round-large w3-hover-shadow-2">
-          <h3 class="w3-center w3-text-orange">Sustainability Initiatives</h3>
-          <p class="w3-center">Developing green technologies to reduce emissions and improve energy efficiency in urban transit.</p>
+
+          <h3 class="w3-center w3-text-orange">
+            Sustainability Initiatives
+          </h3>
+
+          <p class="w3-center">
+
+            Developing green technologies to reduce
+            emissions and improve energy efficiency
+            in urban transit.
+
+          </p>
+
         </div>
+
       </div>
+
       <div class="w3-quarter">
+
         <div class="w3-card-4 w3-white w3-round-large w3-hover-shadow-2">
-          <h3 class="w3-center w3-text-orange">Smart Transport Systems</h3>
-          <p class="w3-center">Implementing cutting-edge solutions for smart monitoring and real-time data analytics.</p>
+
+          <h3 class="w3-center w3-text-orange">
+            Smart Transport Systems
+          </h3>
+
+          <p class="w3-center">
+
+            Implementing cutting-edge solutions
+            for smart monitoring and
+            real-time analytics.
+
+          </p>
+
         </div>
+
       </div>
-	  <div class="w3-quarter">
+
+      <div class="w3-quarter">
+
         <div class="w3-card-4 w3-white w3-round-large w3-hover-shadow-2">
-          <h3 class="w3-center w3-text-orange">User-Friendly and Easy</h3>
-          <p class="w3-center">Making sure it is easy to use and navigate for everyone of all ages.</p>
+
+          <h3 class="w3-center w3-text-orange">
+            User-Friendly and Easy
+          </h3>
+
+          <p class="w3-center">
+
+            Making sure it is easy to use and
+            navigate for everyone of all ages.
+
+          </p>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="w3-container w3-theme-d1 w3-center w3-padding-64" style="background-color: #000;">
+  <!-- Contact -->
+  <section id="contact"
+  class="w3-container w3-theme-d1 w3-center w3-padding-64"
+  style="background-color:#000;">
+
     <footer>
-      <h4 class="w3-text-teal">Contact Us</h4>
-      <p><i class="w3-xlarge fa fa-map-marker w3-text-teal"></i> Puerto Rico, US</p>
-      <p><i class="w3-xlarge fa fa-phone w3-text-teal"></i> +00 1515151515</p>
-      <p><i class="w3-xlarge fa fa-envelope w3-text-teal"> </i> InstantRail@gmail.com</p>
-	  
-	  <div class="w3-left w3-text-teal" style="display: flex; align-items: center;">
-  <img src="images2/favicon_io/edited_1.png" alt="Avatar" class="w3-circle w3-margin-right w3-image" style="width:30px; height:30px;">
-  <p><i class="w3-xlarge"></i> Powered by Sunrise Venture</p>
-</div>
+
+      <h4 class="w3-text-teal">
+        Contact Us
+      </h4>
+
+      <p>
+        <i class="w3-xlarge fa fa-map-marker w3-text-teal"></i>
+        Puerto Rico, US
+      </p>
+
+      <p>
+        <i class="w3-xlarge fa fa-phone w3-text-teal"></i>
+        +00 1515151515
+      </p>
+
+      <p>
+        <i class="w3-xlarge fa fa-envelope w3-text-teal"></i>
+        InstantRail@gmail.com
+      </p>
+
+      <div class="w3-left w3-text-teal"
+      style="display:flex; align-items:center;">
+
+        <img src="images2/favicon_io/edited_1.png"
+        alt="Avatar"
+        class="w3-circle w3-margin-right w3-image"
+        style="width:30px; height:30px;">
+
+        <p>
+          Powered by Sunrise Venture
+        </p>
+
+      </div>
 
     </footer>
+
   </section>
 
-</script>
-</body>
+  <script>
 
+    function openNav() {
+
+      let x = document.getElementById("navDemo");
+
+      if (x.className.indexOf("w3-show") == -1) {
+
+        x.className += " w3-show";
+
+      } else {
+
+        x.className =
+        x.className.replace(" w3-show", "");
+
+      }
+
+    }
+
+  </script>
+
+</body>
 </html>
